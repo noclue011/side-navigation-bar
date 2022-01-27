@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
+        <!-- Boxicons link for icons -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+    <!-- Entire navigation bar -->
+    <div class="sidebar">
+        <!-- Logo/Name/Menu button -->
+        <div class="logo-details">
+            <i class='bx bxl-tiktok icon'></i>
+            <div class="logo_name">SideBar</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <!-- Menu items -->
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search' ></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_text">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user' ></i>
+                    <span class="link_text">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat' ></i>
+                    <span class="link_text">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2' ></i>
+                    <span class="link_text">Analytics</span>
+                </a>
+                <span class="tooltip">Analytics</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-folder' ></i>
+                    <span class="link_text">File Manager</span>
+                </a>
+                <span class="tooltip">Files</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart-alt' ></i>
+                    <span class="link_text">Order</span>
+                </a>
+                <span class="tooltip">Order</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart' ></i>
+                    <span class="link_text">Saved</span>
+                </a>
+                <span class="tooltip">Saved</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="link_text">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+            <!-- User information -->
+            <li class="profile">
+                <div class="profile-details">
+                    <!--<img src="profile.jpg" alt="profileImg">-->
+                    <i class='bx bx-user-circle' id="profile-pic"></i>
+                    <div class="name_job">
+                        <div class="name">User name</div>
+                        <div class="job">Job title</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out" ></i>
+            </li>
+        </ul>
+    </div>
+    <!-- Main content of page -->
+    <section class="home-section">
+        <div class="text">Dashboard</div>
+    </section>
+    <!-- Javascript -->
+    <script src="navigation.js"></script>
+</body>
+</html>
