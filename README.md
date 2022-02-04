@@ -1,6 +1,8 @@
 # Introduction
 This project is a side navigation bar that can be used for websites. The navigation bar does not link to other webpages, but contains the components and animations necessary to use it in future websites.
 
+Project live at https://noclue011.github.io/side-navigation-bar/
+
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
@@ -32,7 +34,7 @@ The purpose of this project was to create a navigation bar that I can easily imp
 
 
 ## Setup
-
+Project live at https://noclue011.github.io/side-navigation-bar/
 
 ## Project Status
 _In Progress_
