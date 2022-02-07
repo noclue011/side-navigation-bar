@@ -1,6 +1,6 @@
 // --- Sidebar Open/Close ---
 let sidebar = document.querySelector(".sidebar"),
-    closeBtn = document.querySelector("#menuBtn"),
+    closeBtn = document.querySelector(".toggle"),
     searchBtn = document.querySelector(".bx-search");
 // Opens sidebar when sidebar icon is clicked
 closeBtn.addEventListener("click", ()=>{

@@ -46,6 +46,10 @@ body.dark {
     width: 250px;
 }
 /* --- Logo/Name/Menu button --- */
+.sidebar header {
+    position: relative;
+    padding-bottom: 25px;
+}
 .sidebar .logo-details {
     height: 60px;
     display: flex;
@@ -60,6 +64,8 @@ body.dark {
 .sidebar .logo-details .icon {
     opacity: 0;
     transition: var(--tran-05);
+    background: var(--primary-color);
+    color: var(--sidebar-color);
 }
 /* --- Name --- */
 .sidebar .logo-details .logo_name {
@@ -68,6 +74,7 @@ body.dark {
     font-weight: 600;
     opacity: 0;
     transition: var(--tran-05);
+    padding-left: 10px;
 }
 /* --- Menu button --- */
 .sidebar .logo-details #menuBtn {
@@ -82,14 +89,21 @@ body.dark {
     cursor: pointer;
     transition: var(--tran-05);
 }
+.sidebar 
 .sidebar.open .logo-details #menuBtn {
     text-align: right;
 }
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+}
 /* --- Sidebar menu items --- */
 .sidebar .nav-list {
-    margin-top: 20px;
     min-height: 10%;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -128,22 +142,25 @@ body.dark {
     transition: var(--tran-05);
 }
 /* --- Search box --- */
-.sidebar input{
+.sidebar .search-box {
+    border-radius: 12px;
+    transition: var(--tran-05);
+    background: var(--primary-color-light);
+    cursor: pointer;
+}
+.sidebar.open .search-box {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+.sidebar input {
     font-size: 15px;
     color: var(--text-color);
     font-weight: 400;
     outline: none;
     height: 50px;
     width: 100%;
-    width: 50px;
     border: none;
-    border-radius: 12px;
-    transition: var(--tran-05);
-    background: var(--primary-color-light);
-}
-.sidebar.open input {
-    padding: 0 20px 0 50px;
-    width: 100%;
+    background: transparent;
 }
 /* --- Tooltips --- */
 .sidebar li .tooltip {
@@ -302,6 +319,8 @@ body.dark {
     display: flex;
     align-items: center;
     transition: var(--tran-05);
+    border: none;
+    border-radius: 12px;
 }
 .sidebar .mode .moon-sun {
     height: 50px;
