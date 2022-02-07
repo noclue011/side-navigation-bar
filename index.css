@@ -102,10 +102,10 @@ body.dark {
 }
 .sidebar header .menu-toggle {
     position: absolute;
-    top: 34%;
+    top: 30%;
     right: -25px;
-    height: 20px;
-    width: 20px;
+    height: 22px;
+    width: 22px;
     background-color: var(--primary-color);
     border-radius: 50%;
     transition: var(--tran-05);
@@ -257,120 +257,19 @@ body.dark {
 .sidebar.open li .tooltip {
     display: none;
 }
-/* --- Profile section --- */
-.sidebar li.profile {
-    position: fixed;
-    height: 60px;
-    width: 78px;
-    left: 0;
-    bottom: -8px;
-    padding: 10px 14px;
-    background: var(--primary-color-light);
-    transition: var(--tran-05);
-    overflow: hidden;
-}
-.sidebar.open li.profile {
-    width: 250px;
-}
-.sidebar li .profile-details {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-/* --- Profile Image --- */
-/* ------------------------------------------- */
-/* .sidebar li img {
-    height: 45px;
-    width: 45px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-right: 10px;
-}  */
-/* -------------------------------------------- */
-
-/* --- Profile image --- */
-.sidebar li.profile #profile-pic {
-    color: var(--text-color);
-    height: 55px;
-    min-width: 50px;
-    font-size: 35px;
-    transform: translateX(-10%);
-    line-height: 50px;
-    border-radius: 12px;
-    padding-bottom: 10px;
-    opacity: 0;
-    transition: var(--tran-05);
-}
-.sidebar.open li.profile #profile-pic {
-    opacity: 1;
-    transition: var(--tran-05);
-}
-/* --- Profile Name/Job --- */
-.sidebar li.profile .name,
-.sidebar li.profile .job {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--text-color);
-    white-space: nowrap;
-    opacity: 0;
-    transition: var(--tran-05);
-}
-.sidebar.open li.profile .name,
-.sidebar.open li.profile .job {
-    opacity: 1;
-    transition: var(--tran-05);
-}
-.sidebar li.profile .job {
-    font-size: 12px;
-    padding-bottom: 10px;
-}
-/* --- Logout icon --- */
-.sidebar .profile #log_out {
-    position: absolute;
-    top: 0%;
-    right: 0;
-    /* transform: translateY(-50%); */
-    background: transparent;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    font-size: 25px;
-    border-radius: 0px;
-    transition: var(--tran-05);
-}
-.sidebar.open .profile #log_out {
-    width: 50px;
-    background: none;
-}
-/* --- Main page content --- */
-.home-section {
-    position: relative;
-    background: var(--body-color);
-    min-height: 100vh;
-    top: 0;
-    left: 78px;
-    width: calc(100% - 78px);
-    transition: var(--tran-05);
-    z-index: 2;
-}
-.sidebar.open ~ .home-section {
-    left: 250px;
-    width: calc(100% - 250px);
-}
-.home-section .text {
-    display: inline-block;
-    color: var(--text-color);
-    font-size: 25px;
-    font-weight: 500;
-    margin: 18px
-}
 /* --- Dark Mode Section --- */
 .sidebar .mode {
     background: var(--primary-color-light);
+    position: fixed;
+    bottom: 70px;
     display: flex;
     align-items: center;
     transition: var(--tran-05);
     border-radius: 12px;
+    width: 50px;
+}
+.sidebar.open .mode {
+    width: 220px;
 }
 .sidebar .mode .moon-sun {
     height: 50px;
@@ -436,4 +335,108 @@ body.dark {
 /* --- [Dark] Toggle Switch --- */
 body.dark .switch::before {
     left: 21px;
+}
+/* --- Profile section --- */
+.sidebar li.profile {
+    position: fixed;
+    height: 60px;
+    width: 78px;
+    left: 0;
+    bottom: -8px;
+    padding: 10px 14px;
+    background: var(--primary-color-light);
+    transition: var(--tran-05);
+    overflow: hidden;
+}
+.sidebar.open li.profile {
+    width: 250px;
+}
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+/* --- Profile Image --- */
+/* ------------------------------------------- */
+/* .sidebar li img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+}  */
+/* -------------------------------------------- */
+
+/* --- Profile image --- */
+.sidebar li.profile #profile-pic {
+    color: var(--text-color);
+    min-width: 50px;
+    font-size: 35px;
+    transform: translateX(-10%);
+    line-height: 50px;
+    border-radius: 12px;
+    padding-bottom: 10px;
+    opacity: 0;
+    transition: var(--tran-05);
+}
+.sidebar.open li.profile #profile-pic {
+    opacity: 1;
+    transition: var(--tran-05);
+}
+/* --- Profile Name/Job --- */
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-color);
+    white-space: nowrap;
+    opacity: 0;
+    transition: var(--tran-05);
+}
+.sidebar.open li.profile .name,
+.sidebar.open li.profile .job {
+    opacity: 1;
+    transition: var(--tran-05);
+}
+.sidebar li.profile .job {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+/* --- Logout icon --- */
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 0%;
+    right: 0;
+    background: transparent;
+    width: 100%;
+    line-height: 60px;
+    font-size: 25px;
+    border-radius: 0px;
+    transition: var(--tran-05);
+}
+.sidebar.open .profile #log_out {
+    width: 50px;
+    background: none;
+}
+/* --- Main page content --- */
+.home-section {
+    position: relative;
+    background: var(--body-color);
+    min-height: 100vh;
+    top: 0;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: var(--tran-05);
+    z-index: 2;
+}
+.sidebar.open ~ .home-section {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+.home-section .text {
+    display: inline-block;
+    color: var(--text-color);
+    font-size: 25px;
+    font-weight: 500;
+    margin: 18px
 }
