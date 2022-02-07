@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
     <head>
         <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <link rel="stylesheet" href="index.css">
+        <!-- favicon icon for webpage -->
+        <link rel="icon" type="image/png" href="yen-regular-24.png">
         <!-- Boxicons link for icons -->
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +17,15 @@
         <div class="logo-details">
             <i class='bx bxl-tiktok icon'></i>
             <div class="logo_name">SideBar</div>
-            <i class='bx bx-menu' id="btn" ></i>
+            <i class='bx bx-menu' id="menuBtn"></i>
         </div>
         <!-- Menu items -->
+        <li>
+            <i class='bx bx-search' ></i>
+            <input type="text" placeholder="Search...">
+            <span class="tooltip">Search</span>
+        </li>
         <ul class="nav-list">
-            <li>
-                <i class='bx bx-search' ></i>
-                <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
-            </li>
             <li>
                 <a href="#">
                     <i class='bx bx-grid-alt'></i>
@@ -80,19 +82,29 @@
                 </a>
                 <span class="tooltip">Setting</span>
             </li>
-            <!-- User information -->
-            <li class="profile">
-                <div class="profile-details">
-                    <!--<img src="profile.jpg" alt="profileImg">-->
-                    <i class='bx bx-user-circle' id="profile-pic"></i>
-                    <div class="name_job">
-                        <div class="name">User name</div>
-                        <div class="job">Job title</div>
-                    </div>
-                </div>
-                <i class='bx bx-log-out' id="log_out" ></i>
-            </li>
         </ul>
+        <!-- Dark mode -->
+        <li class="mode">
+            <div class="moon-sun">
+                <i class='bx bx-moon icon moon' id="darkIcon"></i>
+            </div>
+            <span class="mode-text">Dark Mode</span>
+            <div class="toggle-switch">
+                <span class="switch"></span>
+            </div>
+        </li>
+        <!-- User information -->
+        <li class="profile">
+            <div class="profile-details">
+                <!--<img src="profile.jpg" alt="profileImg">-->
+                <i class='bx bx-user-circle' id="profile-pic"></i>
+                <div class="name_job">
+                    <div class="name">User name</div>
+                    <div class="job">Job title</div>
+                </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out" ></i>
+        </li>
     </div>
     <!-- Main content of page -->
     <section class="home-section">
