@@ -15,6 +15,15 @@
     --tran-04: all 0.4s ease;
     --tran-05: all 0.5s ease;
 }
+@keyframes menu-toggle-size {
+    0% {transform: scale(1); opacity: 1;}
+    70% {transform: scale(2); opacity: 0.5;}
+}
+@keyframes menu-toggle-rotation {
+    0% {transform: rotate(0deg);}
+    43% {transform: rotate(45deg);}
+    68% {transform: rotate(-45deg);}
+}
 body.dark {
     --body-color: #18191A;
     --sidebar-color: #242526;
@@ -23,7 +32,6 @@ body.dark {
     --toggle-color: #FFF;
     --text-color: #CCC;
 }
-
 *{
     margin: 0;
     padding: 0;
@@ -48,7 +56,8 @@ body.dark {
 /* --- Logo/Name/Menu button --- */
 .sidebar header {
     position: relative;
-    padding-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 15px;
 }
 .sidebar .logo-details {
     height: 60px;
@@ -59,13 +68,21 @@ body.dark {
 .sidebar.open .logo-details .icon,
 .sidebar.open .logo-details .logo_name {
     opacity: 1;
+    transition: var(--tran-03);
 }
 /* --- Logo --- */
-.sidebar .logo-details .icon {
-    opacity: 0;
-    transition: var(--tran-05);
+.sidebar .logo-details .logo-div {
     background: var(--primary-color);
-    color: var(--sidebar-color);
+    height: 40px;
+    width: 40px;
+    transform: translateX(5px);
+    border-radius: 50%;
+}
+.sidebar .logo-details .logo {
+    transition: var(--tran-03);
+    color: white;
+    font-size: 22px;
+    transform: translateX(-4px) translateY(-5px);
 }
 /* --- Name --- */
 .sidebar .logo-details .logo_name {
@@ -73,33 +90,92 @@ body.dark {
     font-size: 20px;
     font-weight: 600;
     opacity: 0;
-    transition: var(--tran-05);
-    padding-left: 10px;
+    transition: var(--tran-03);
+    padding-left: 15px;
 }
-/* --- Menu button --- */
-.sidebar .logo-details #menuBtn {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    font-size: 22px;
-    transition: var(--tran-04);
-    font-size: 23px;
-    text-align: center;
-    cursor: pointer;
-    transition: var(--tran-05);
-}
-.sidebar 
-.sidebar.open .logo-details #menuBtn {
-    text-align: right;
-}
+/* --- Menu arrow --- */
 .sidebar header .toggle {
+    transform: rotate(0deg);
+    color: white;
+    font-size: 22px;
+    position: relative;
+}
+.sidebar header .menu-toggle {
     position: absolute;
-    top: 50%;
+    top: 34%;
     right: -25px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: var(--tran-05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar header .menu-toggle.burst {
+    animation: menu-toggle-size 1.4s ease infinite, 
+                    menu-toggle-rotation 1.4s ease infinite;
+    /* animation-duration: 1.2s, 1.2s;
+    animation-timing-function: ease, ease;
+    animation-iteration-count: infinite, infinite; */
+}
+.sidebar.open .toggle {
+    transform: rotate(180deg);
+    transition: var(--tran-05);
+}
+/* --- Search icon --- */
+.sidebar .bx-search {
+    position: absolute;
+    left: 0;
+    font-size: 22px;
+    background: transparent;
+    color: var(--text-color);
+    transition: var(--tran-05);
+    z-index: 99;
+}
+/* .sidebar .bx-search:hover,
+.sidebar.open .bx-search:hover {
+    background: var(--primary-color);
+    color: white;
+    transition: var(--tran-05);
     transform: translateY(-50%);
-    height: 25px;
-    width: 25px;
+} */
+/* --- Search box --- */
+.sidebar .search-box {
+    border-radius: 12px;
+    transition: var(--tran-05);
+    background: var(--primary-color-light);
+    cursor: pointer;
+}
+.sidebar .search-box:hover {
+    background: var(--primary-color);
+}
+.sidebar .search-box:hover input,
+.sidebar .search-box:hover .bx-search {
+    color: white;
+    transition: var(--tran-05);
+}
+.sidebar.open .search-box {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+.sidebar input {
+    font-size: 15px;
+    color: var(--text-color);
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding-left: 5px;
+    opacity: 0;
+    transition: var(--tran-02);
+}
+.sidebar.open input {
+    opacity: 1;
+    transition: all 1.4s ease;
 }
 /* --- Sidebar menu items --- */
 .sidebar .nav-list {
@@ -118,49 +194,41 @@ body.dark {
     color: var(--text-color);
     height: 50px;
     min-width: 50px;
-    font-size: 18px;
+    font-size: 22px;
     text-align: center;
     line-height: 50px;
     border-radius: 12px;
     transition: var(--tran-05);
 }
-/* --- Search icon --- */
-.sidebar .bx-search {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 22px;
-    background: var(--primary-color-light);
-    color: var(--text-color);
-    transition: var(--tran-04);
-}
-.sidebar .bx-search:hover,
-.sidebar.open .bx-search:hover {
-    background: var(--primary-color);
-    color: white;
-    transition: var(--tran-05);
-}
-/* --- Search box --- */
-.sidebar .search-box {
+/* --- Sidebar links --- */
+.sidebar li a {
+    display: flex;
     border-radius: 12px;
-    transition: var(--tran-05);
-    background: var(--primary-color-light);
-    cursor: pointer;
-}
-.sidebar.open .search-box {
-    padding: 0 20px 0 50px;
-    width: 100%;
-}
-.sidebar input {
-    font-size: 15px;
-    color: var(--text-color);
-    font-weight: 400;
-    outline: none;
-    height: 50px;
-    width: 100%;
-    border: none;
+    align-items: center;
+    text-decoration: none;
     background: transparent;
+}
+.sidebar li a .link_text {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--tran-03);
+}
+.sidebar.open li a .link_text {
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar li a:hover {
+    background: var(--primary-color);
+    transition: var(--tran-03);
+}
+.sidebar li a:hover .link_text,
+.sidebar li a:hover i {
+    transition: var(--tran-05);
+    color: white;
 }
 /* --- Tooltips --- */
 .sidebar li .tooltip {
@@ -188,37 +256,6 @@ body.dark {
 }
 .sidebar.open li .tooltip {
     display: none;
-}
-/* --- Sidebar links --- */
-.sidebar li a {
-    display: flex;
-    border-radius: 12px;
-    align-items: center;
-    text-decoration: none;
-    transition: var(--tran-04);
-    background: transparent;
-}
-.sidebar li a .link_text {
-    color: var(--text-color);
-    font-size: 15px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
-}
-.sidebar.open li a .link_text {
-    opacity: 1;
-    pointer-events: auto;
-}
-.sidebar li a:hover {
-    background: var(--primary-color);
-    transition: var(--tran-03);
-}
-.sidebar li a:hover .link_text,
-.sidebar li a:hover i {
-    transition: var(--tran-05);
-    color: white;
 }
 /* --- Profile section --- */
 .sidebar li.profile {
@@ -261,6 +298,12 @@ body.dark {
     line-height: 50px;
     border-radius: 12px;
     padding-bottom: 10px;
+    opacity: 0;
+    transition: var(--tran-05);
+}
+.sidebar.open li.profile #profile-pic {
+    opacity: 1;
+    transition: var(--tran-05);
 }
 /* --- Profile Name/Job --- */
 .sidebar li.profile .name,
@@ -269,6 +312,13 @@ body.dark {
     font-weight: 400;
     color: var(--text-color);
     white-space: nowrap;
+    opacity: 0;
+    transition: var(--tran-05);
+}
+.sidebar.open li.profile .name,
+.sidebar.open li.profile .job {
+    opacity: 1;
+    transition: var(--tran-05);
 }
 .sidebar li.profile .job {
     font-size: 12px;
@@ -277,13 +327,14 @@ body.dark {
 /* --- Logout icon --- */
 .sidebar .profile #log_out {
     position: absolute;
-    top: 50%;
+    top: 0%;
     right: 0;
-    transform: translateY(-50%);
-    background: var(--primary-color-light);
+    /* transform: translateY(-50%); */
+    background: transparent;
     width: 100%;
     height: 60px;
     line-height: 60px;
+    font-size: 25px;
     border-radius: 0px;
     transition: var(--tran-05);
 }
@@ -319,7 +370,6 @@ body.dark {
     display: flex;
     align-items: center;
     transition: var(--tran-05);
-    border: none;
     border-radius: 12px;
 }
 .sidebar .mode .moon-sun {
@@ -327,30 +377,46 @@ body.dark {
     width: 60px;
     display: flex;
     align-items: center;
+    opacity: 0;
+    transition: var(--tran-05);
 }
 .sidebar .mode .mode-text {
     color: var(--text-color);
+    opacity: 0;
+    transition: var(--tran-02);
+}
+.sidebar.open .mode .moon-sun,
+.sidebar.open .mode .mode-text {
+    opacity: 1;
+    transition: all 1.2s ease;
 }
 /* --- Dark Mode Icons --- */
-.sidebar .mode i {
+.sidebar.open .mode i {
     position: absolute;
 }
-.sidebar .mode i.sun {
+.sidebar.open .mode i.sun {
     opacity: 0;
 }
 /* --- Dark Mode Toggle Switch --- */
 .sidebar .mode .toggle-switch {
+    position: absolute;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-width: 60px;
+    min-width: 50px;
     cursor: pointer;
+    transition: var(--tran-05);
+}
+.sidebar.open .mode .toggle-switch {
+    right: 5px;
+    transition: var(--tran-05);
 }
 .toggle-switch .switch{
     position: relative;
     height: 22px;
-    width: 44px;
+    width: 40px;
     border-radius: 25px;
     background: var(--toggle-color);
     transition: var(--tran-03);
@@ -369,5 +435,5 @@ body.dark {
 }
 /* --- [Dark] Toggle Switch --- */
 body.dark .switch::before {
-    left: 24px;
+    left: 21px;
 }
