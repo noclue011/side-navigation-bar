@@ -116,9 +116,6 @@ body.dark {
 .sidebar header .menu-toggle.burst {
     animation: menu-toggle-size 1.4s ease infinite, 
                     menu-toggle-rotation 1.4s ease infinite;
-    /* animation-duration: 1.2s, 1.2s;
-    animation-timing-function: ease, ease;
-    animation-iteration-count: infinite, infinite; */
 }
 .sidebar.open .toggle {
     transform: rotate(180deg);
@@ -134,13 +131,6 @@ body.dark {
     transition: var(--tran-05);
     z-index: 99;
 }
-/* .sidebar .bx-search:hover,
-.sidebar.open .bx-search:hover {
-    background: var(--primary-color);
-    color: white;
-    transition: var(--tran-05);
-    transform: translateY(-50%);
-} */
 /* --- Search box --- */
 .sidebar .search-box {
     border-radius: 12px;
@@ -208,6 +198,10 @@ body.dark {
     text-decoration: none;
     background: transparent;
 }
+.sidebar li .dropdown .selector {
+    width: 200px;
+    display: flex;
+}
 .sidebar li a .link_text {
     color: var(--text-color);
     font-size: 15px;
@@ -221,14 +215,58 @@ body.dark {
     opacity: 1;
     pointer-events: auto;
 }
-.sidebar li a:hover {
+.sidebar .nav-list li:hover,
+.sidebar .nav-list li .item:hover,
+.sidebar .nav-list li.showMenu {
     background: var(--primary-color);
-    transition: var(--tran-03);
+    transition: background 0.3s ease;
+    border-radius: 12px;
 }
-.sidebar li a:hover .link_text,
-.sidebar li a:hover i {
+.sidebar .nav-list li .item:hover a .link_text,
+.sidebar .nav-list li.showMenu a .link_text,
+.sidebar .nav-list li.showMenu i,
+.sidebar .nav-list li .item:hover i,
+.sidebar .nav-list li:hover a .link_text,
+.sidebar .nav-list li:hover i {
     transition: var(--tran-05);
     color: white;
+}
+/* --- Sub Menus --- */
+.sidebar .dropdown {
+    display: flex;
+}
+.sidebar .nav-list li .sub-menu {
+    padding: 0 6px 0 50px;
+    margin-top: -10px;
+    background: var(--primary-color);
+    border-radius: 12px;
+    display: none;
+}
+.sidebar .nav-list li.showMenu .sub-menu {
+    display: block; 
+}
+.sidebar .nav-list li .sub-menu a {
+    color: white;
+    font-size: 13px;
+    padding: 5px 0;
+}
+.sidebar .nav-list li .dropdown .arrow {
+    opacity: 0;
+    transition: var(--tran-02);
+    position: absolute;
+    left: 80px;
+}
+.sidebar.open .nav-list li .dropdown .arrow {
+    opacity: 1;
+    transition: var(--tran-05);
+    position: absolute;
+    left: 180px;
+    cursor: pointer;
+    transform: rotate(0deg);
+}
+.sidebar.open .nav-list li.showMenu .dropdown .arrow {
+    transform: rotate( 180deg);
+    transition: var(--tran-05);
 }
 /* --- Tooltips --- */
 .sidebar li .tooltip {

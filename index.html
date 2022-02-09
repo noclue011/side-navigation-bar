@@ -34,18 +34,29 @@
         <!-- Menu items -->
         <ul class="nav-list">
             <li>
-                <a href="#">
-                    <i class='bx bx-grid-alt icon'></i>
-                    <span class="link_text">Dashboard</span>
-                </a>
-                <span class="tooltip">Dashboard</span>
+                <div class="item">
+                    <a href="#">
+                        <i class='bx bx-grid-alt icon'></i>
+                        <span class="link_text">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </div>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-user icon' ></i>
-                    <span class="link_text">User</span>
-                </a>
-                <span class="tooltip">User</span>
+                <!-- Needed for each dropdown menu section -->
+                <div class="dropdown item">
+                    <a href="#">
+                        <i class='bx bx-user icon' ></i>
+                        <span class="link_text">User</span>
+                    </a>
+                    <i class='bx bx-chevron-down arrow' ></i>
+                    <span class="tooltip">User</span>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Friends List</a></li>
+                    <li><a href="#">Requests</a></li>
+                </ul>
             </li>
             <li>
                 <a href="#">
